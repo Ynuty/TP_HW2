@@ -29,8 +29,44 @@ class Ingredient: ## 1.1 из ТЗ
 
 
 class Recipe:
-    pass
     
+    def __init__(self, title, ingredients):
+        self.title = title
+        self.ingredients = ingredients
+
+    def add_ingredient(self, ingredient):
+        for item in self.ingredients:
+            if item == ingredient:
+                item.quantity += ingredient.quantity
+                return
+        self.ingredients.append(ingredient)
+
+
+    @staticmethod
+    def is_valid_ratio(ratio):
+        return isinstance(ratio, (int, float)) and ratio > 0
+
+
+    def scale(self, ratio):
+        if not self.is_valid_ratio(ratio):
+            raise ValueError("Коэффициент должен быть положительным числом")
+        
+        new_ingredients = []
+        for ingredient in self.ingredients:
+            new_ingredients.append(
+                Ingredient(ingredient.name, ingredient.quantity * ratio, ingredient.unit)
+            )
+        return Recipe(self.title, new_ingredients)
+
+
+
+    def __len__(self):
+        return len(self.ingredients)
+
+
+    def __str__(self):
+        return f"Ingredients for {self.title}: {' '.join(str(ingredient) for ingredient in self.ingredients)}"
+
 
 class ShoppingList:
     pass

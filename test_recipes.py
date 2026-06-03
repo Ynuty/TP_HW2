@@ -35,7 +35,6 @@ def test_ingredient_eq_different_unit(): #Разные unit
     b = Ingredient("Мука", 500, "кг")
     assert a != b
 
-# 2.1 проверку прошли
 
 #  2.2 Recipe 
 
@@ -87,8 +86,6 @@ def test_recipe_len():#Возвращается количество уника�
     recipe.add_ingredient(Ingredient("Мука", 50, "г"))
     assert len(recipe) == 2
 
-
-# 2.2 Проверку прошли
 
 
 #  2.3 ShoppingList 
@@ -166,6 +163,3 @@ def test_shopping_list_add_operator():#Два списка покупок кор
     assert len(b._items) == count_b
 
 
-
-
-#3.1 успешно прошел

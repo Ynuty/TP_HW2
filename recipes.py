@@ -1,4 +1,4 @@
-class Ingredient: ## 1.1 из ТЗ
+class Ingredient: 
 
     def __init__(self, name, quantity, unit):
         self.name = name
